@@ -11,7 +11,8 @@ class Question(models.Model):
         return self.question_txt
     
     def recently_added(self):
-        return self.pub_date >= timezone.now() - datetime.timedelta(days=1) #this takes the current time and subtracts a day. Then compares whether the question
+        now=timezone.now()
+        return now - datetime.timedelta(days=1) <=self.pub_date <= now #this takes the current time and subtracts a day. Then compares whether the question
                                                                             #has been posted from that time to recent.
                                                                             
 class Answer(models.Model):
