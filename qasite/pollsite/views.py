@@ -7,6 +7,8 @@ from django.db.models import F
 # import the models
 from .models import Question, Answer
 
+#ttimezone
+from django.utils import timezone
 
 # Create your views here.
 
@@ -16,7 +18,10 @@ class IndexView(generic.ListView):
     context_object_name= "latest_quiz_list"
     
     def get_queryset(self):
-        return Question.objects.order_by('-pub_date')
+        # modify to make sure you cater for time prior to rendering the list of questions lte== less than or equal to
+        return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')
+        # return Question.objects.order_by('-pub_date')
+        
     
     
 #details of the Question
