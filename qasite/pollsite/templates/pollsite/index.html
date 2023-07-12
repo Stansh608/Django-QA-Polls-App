@@ -1,6 +1,9 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--Load the css-->
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'pollsite/style.css' %}">
+
+  
 
 <html>
     <head>
@@ -10,6 +13,10 @@
 
         <title> Landing page </title>
 
+         {% comment %} 
+        Make the page load the css
+        {% endcomment %}
+     
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,6 +24,7 @@
     </head>
     <body>
 
+       
         <!--[if lt IE 7]>
 
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
@@ -26,8 +34,8 @@
 
         
         <script src="" async defer></script>
-These are all the questions present under Index.html
-
+        <h4 >These are all the questions present under Index.html</h4>
+        <input type="button" id="heading" value="Click!"> 
  
         {% if latest_quiz_list %}
     <ul>
